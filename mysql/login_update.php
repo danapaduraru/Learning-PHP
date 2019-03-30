@@ -1,12 +1,6 @@
-<?php include "db.php";
-    
-    $query = "SELECT * from user";
-    $result = mysqli_query($connection,$query);
-    if(!$result) {
-        die('Query failed' . mysqli_error());
-    }
+<?php include "db.php"; ?>
+<?php include "sql_functions.php"; ?>
 
-?>
 <html>
 
 <head>
@@ -30,7 +24,9 @@
                 
                 <div class="form-group">
                     <select name="id" id="">
-                        <option value="">1</option>
+                    <?php
+                    showIdsFromDb();
+                    ?>
                     </select>
                 </div>
                 <input class="btn btn-primary" type="submit" name="submit" value="Update!">
