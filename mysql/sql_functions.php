@@ -11,15 +11,9 @@ function selectAllFromDb() {
     }
     else {
     while($row = mysqli_fetch_assoc($result)) {
-    ?>
-    <pre>    
-    <?php // <pre> is for pre-formatted text
-        print_r($row);
-    ?>
-    </pre>
-    <?php
+    print_r($row);
      }
-    }        
+  }        
 }
 
 function showIdsFromDb() {
