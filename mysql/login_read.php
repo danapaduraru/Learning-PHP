@@ -1,22 +1,6 @@
-<?php
-    
-    // CONNECT TO DATABASE
-    $connection = mysqli_connect('localhost','root','','loginapp');
-    if($connection) {
-        echo "we are connected";
-    }
-    else {
-        die("Database connection failed");
-    }
-    
-    $query = "SELECT * from user";
-    
-    $result = mysqli_query($connection,$query);
-    if(!$result) {
-        die('Query failed' . mysqli_error());
-    }
+<?php include "db.php"; ?>
+<?php include "sql_functions.php"; ?>
 
-?>
 <html>
 
 <head>
@@ -28,19 +12,10 @@
 <body>
     <div class="container">
         <div class="col-sm-3">
-
-            <?php
-            while($row = mysqli_fetch_assoc($result)) {
-                ?>
-                <pre>
-                <?php
-                print_r($row);
-                ?>
-                </pre>
-                <?php
-            }
-            ?>
-
+        <h3> Reading from DB </h3>
+        <?php   
+            selectAllFromDb();
+        ?>
         </div>
     </div>
 </body>
